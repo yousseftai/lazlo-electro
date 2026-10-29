@@ -1,0 +1,24 @@
+/* Right-to-left adjustments for Arabic. Most layout mirrors automatically
+   via `dir="rtl"`; these rules flip the glyph arrows and hard-coded sides. */
+
+[dir="rtl"] .link-arrow svg,
+[dir="rtl"] .hero__actions svg,
+[dir="rtl"] .brand-card__cta svg,
+[dir="rtl"] .search-see-all svg {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .cart-item__prices {
+  text-align: left;
+}
+
+/* Arabic typography: Cairo (loaded in index.html together with Inter). */
+html[lang="ar"] {
+  --font: "Cairo", "Segoe UI", Tahoma, system-ui, sans-serif;
+}
+
+html[lang="ar"] .hero__title,
+html[lang="ar"] .page__title,
+html[lang="ar"] .section-head__title {
+  line-height: 1.28;
+}

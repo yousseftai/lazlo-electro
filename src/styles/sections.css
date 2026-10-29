@@ -1,0 +1,367 @@
+/* ============================================================
+   Home sections: feature strip, promos, brands, benefits
+   ============================================================ */
+
+/* ---------- Feature strip (overlaps hero) ---------- */
+
+.features {
+  position: relative;
+  z-index: 5;
+  margin-top: -66px;
+}
+
+.features__panel {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md);
+  padding: 24px 10px;
+}
+
+.features__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-inline: 24px;
+}
+
+.features__item + .features__item {
+  border-left: 1px solid var(--border);
+}
+
+.features__icon {
+  color: var(--text);
+  flex-shrink: 0;
+}
+
+.features__title {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.features__desc {
+  margin-top: 2px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+@media (max-width: 940px) {
+  .features__panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 20px;
+    padding: 22px 12px;
+  }
+
+  .features__item:nth-child(3) {
+    border-left: 0;
+  }
+}
+
+@media (max-width: 540px) {
+  .features__panel {
+    grid-template-columns: 1fr;
+    padding: 20px 18px;
+  }
+
+  .features__item + .features__item {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+
+  .features__item {
+    padding-inline: 4px;
+  }
+}
+
+/* ---------- Promo banners ---------- */
+
+.promos__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.promo {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  align-items: center;
+  min-height: 252px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.promo--student {
+  background: var(--ink-800);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.promo--trade {
+  background: #eef0f3;
+  border: 1px solid var(--border);
+}
+
+.promo__copy {
+  position: relative;
+  z-index: 2;
+  padding: 30px 10px 30px 34px;
+}
+
+.promo__eyebrow {
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
+}
+
+.promo__eyebrow--green {
+  color: var(--green);
+}
+
+.promo__eyebrow--blue {
+  color: var(--blue);
+}
+
+.promo__title {
+  margin-top: 12px;
+  font-size: clamp(23px, 2.6vw, 29px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.promo__sub {
+  margin-top: 7px;
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.promo--trade .promo__sub--muted {
+  color: var(--muted);
+}
+
+.promo__actions {
+  margin-top: 18px;
+}
+
+.promo__actions .btn {
+  min-width: 128px;
+}
+
+.promo__note {
+  margin-top: 9px;
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.promo--trade .promo__note {
+  color: #9aa0a7;
+}
+
+.promo__media {
+  position: relative;
+  height: 100%;
+  min-height: 200px;
+}
+
+.promo__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Melt the photo's left edge into the panel (paints above the image) */
+.promo__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.promo--student .promo__media::after {
+  background: linear-gradient(90deg, var(--ink-800) 0%, var(--ink-800) 12%, rgba(17, 24, 32, 0) 62%);
+}
+
+.promo--trade .promo__media::after {
+  background: linear-gradient(90deg, #eef0f3 0%, #eef0f3 12%, rgba(238, 240, 243, 0) 62%);
+}
+
+.promo__chip {
+  position: absolute;
+  z-index: 2;
+  bottom: 22px;
+  left: -14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #fff;
+  color: var(--text);
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 700;
+  box-shadow: var(--shadow-md);
+}
+
+.promo__chip svg {
+  color: var(--green);
+}
+
+.promo__chip--blue {
+  bottom: 22px;
+  left: auto;
+  right: 16px;
+  padding: 0;
+  width: 52px;
+  height: 52px;
+  justify-content: center;
+  border-radius: var(--r-full);
+  background: var(--blue);
+  color: #fff;
+}
+
+.promo__chip--blue svg {
+  color: #fff;
+}
+
+@media (max-width: 940px) {
+  .promos__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .promo {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .promo__copy {
+    padding: 26px 22px 0;
+  }
+
+  .promo__media {
+    min-height: 190px;
+    margin-top: 18px;
+  }
+
+  .promo--student .promo__media::after,
+  .promo--trade .promo__media::after {
+    background: linear-gradient(180deg, var(--ink-800) 0%, rgba(17, 24, 32, 0) 45%);
+  }
+
+  .promo--trade .promo__media::after {
+    background: linear-gradient(180deg, #eef0f3 0%, rgba(238, 240, 243, 0) 45%);
+  }
+
+  .promo__chip {
+    bottom: 14px;
+    left: 14px;
+  }
+
+  .promo__chip--blue {
+    right: 14px;
+  }
+}
+
+/* ---------- Brand showcase ---------- */
+
+.brands__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px 26px;
+  padding: 10px 0 6px;
+}
+
+.brands__logo {
+  display: inline-flex;
+  align-items: center;
+  opacity: 0.92;
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+
+.brands__logo:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.brands__logo-svg,
+.brand-word {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.brand-word svg {
+  display: block;
+}
+
+@media (max-width: 700px) {
+  .brands__row {
+    justify-content: center;
+  }
+}
+
+/* ---------- Dark benefits strip ---------- */
+
+.benefits {
+  margin-top: 20px;
+  background: var(--ink-800);
+  color: #fff;
+  padding-block: 30px;
+}
+
+.benefits__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.benefits__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.benefits__icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: #fff;
+}
+
+.benefits__title {
+  font-size: 14.5px;
+  font-weight: 700;
+}
+
+.benefits__desc {
+  margin-top: 2px;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 940px) {
+  .benefits__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 460px) {
+  .benefits__grid {
+    grid-template-columns: 1fr;
+  }
+}

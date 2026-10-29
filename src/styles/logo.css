@@ -1,0 +1,38 @@
+/* Lazlo.Electro wordmark: heavy extended LAZLO with gradient Z + letterpressed ELECTRO. */
+
+.laz-logo {
+  display: inline-grid;
+  justify-items: center;
+  gap: 1px;
+  line-height: 1;
+  user-select: none;
+  direction: ltr; /* Latin wordmark: never mirror in RTL */
+}
+
+.laz-logo__word {
+  display: inline-flex;
+  align-items: center;
+  font-size: 23px;
+  font-weight: 900;
+  letter-spacing: 0.045em;
+  color: #f6f7f9;
+  text-shadow: 0 1px 0 #b9bec6, 0 2px 3px rgba(0, 0, 0, 0.35);
+}
+
+.laz-logo__z {
+  margin: 0 1px;
+  transform: translateY(1px);
+}
+
+.laz-logo__sub {
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.62em;
+  margin-right: -0.62em; /* recenter letterspaced text */
+  color: #e8ebef;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.laz-logo--compact .laz-logo__word {
+  font-size: 19px;
+}
